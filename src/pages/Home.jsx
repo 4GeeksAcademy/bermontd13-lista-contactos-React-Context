@@ -1,16 +1,13 @@
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
-import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+  const navigate = useNavigate();
 
-  const {store, dispatch} =useGlobalReducer()
+  useEffect(() => {
+    // Redirige automáticamente a /contacts cuando se carga Home
+    navigate("/contacts");
+  }, []);
 
-	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-		</div>
-	);
-}; 
+  return null; // No renderiza nada en pantalla, solo redirige
+};
